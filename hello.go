@@ -38,8 +38,10 @@ func runClient(address string) error {
 		return err
 	}
 	defer conn.Close()
-
-	message := "Hi Server, this is client speaking!"
+	fmt.Println("Please enter the message you want to send to a server:\n")
+	var message string
+	fmt.Scanln(&message)
+	//message := "Hi Server, this is client speaking!"
 	nBytes, err := conn.Write([]byte(fmt.Sprintf("%s", message)))
 	if err != nil {
 		return err
